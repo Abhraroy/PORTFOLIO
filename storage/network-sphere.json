@@ -1,0 +1,50 @@
+[
+  {
+    "node_label": "Frontend Architecture",
+    "node_description": "Building modern, performant, and reactive web applications with Next.js, React, and TypeScript.",
+    "node_image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&auto=format&fit=crop&q=80",
+    "node_link": "https://react.dev"
+  },
+  {
+    "node_label": "Backend Systems",
+    "node_description": "Designing scalable microservices, REST APIs, and GraphQL endpoints with Node.js and Go.",
+    "node_image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&auto=format&fit=crop&q=80",
+    "node_link": "https://nodejs.org"
+  },
+  {
+    "node_label": "Database Design",
+    "node_description": "Relational and distributed data modeling using PostgreSQL, Prisma ORM, and Redis caching.",
+    "node_image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&auto=format&fit=crop&q=80",
+    "node_link": null
+  },
+  {
+    "node_label": "Cloud Infrastructure",
+    "node_description": "Deploying zero-downtime workloads with Cloudflare Workers, AWS, and Docker containers.",
+    "node_image": null,
+    "node_link": "https://cloudflare.com"
+  },
+  {
+    "node_label": "Interactive 3D & WebGL",
+    "node_description": "Creating immersive 3D canvas experiences using Three.js, React Three Fiber, and GLSL shaders.",
+    "node_image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&auto=format&fit=crop&q=80",
+    "node_link": "https://threejs.org"
+  },
+  {
+    "node_label": "AI & LLM Integration",
+    "node_description": "Embedding intelligent retrieval, vector search, and agentic workflows into web products.",
+    "node_image": null,
+    "node_link": null
+  },
+  {
+    "node_label": "DevOps & CI/CD",
+    "node_description": "Automated pipelines, multi-stage testing, and preview deployments via GitHub Actions.",
+    "node_image": null,
+    "node_link": "https://github.com/features/actions"
+  },
+  {
+    "node_label": "UI/UX Design Systems",
+    "node_description": "Design token management, accessible components, and sleek dark mode interfaces.",
+    "node_image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=400&auto=format&fit=crop&q=80",
+    "node_link": null
+  }
+]

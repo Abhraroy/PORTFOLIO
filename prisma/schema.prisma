@@ -1,0 +1,472 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model PortfolioMode {
+  id                     String                  @id @default(uuid())
+  mode_name              String                  @unique
+  mode_description       String?
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+  experienceModeContents ExperienceModeContent[]
+  myDetailsModeContents  MyDetailsModeContent[]
+  portfolioBlocks        PortfolioBlock[]
+  projectModeContents    ProjectModeContent[]
+
+  @@index([mode_name])
+}
+
+model Project {
+  id                        String                          @id @default(uuid())
+  project_name              String
+  slug                      String                          @unique
+  project_image             String?
+  project_images            String[]                        @default([])
+  project_videos            String[]                        @default([])
+  project_url               String?
+  project_github            String?
+  project_md_url            String?
+  project_tags              String[]
+  project_tech              String[]
+  project_status            ProjectStatus
+  project_type              ProjectType
+  project_visibility_status ProjectVisibilityStatus         @default(PUBLIC)
+  createdAt                 DateTime                        @default(now())
+  updatedAt                 DateTime                        @updatedAt
+  highlights                ProjectHighlight[]
+  interaction               ProjectInteraction?
+  modeContents              ProjectModeContent[]
+  projectShowcaseCMSItems   ProjectShowcaseSectionCMSItem[]
+  selectedWorkCMSItems      SelectedWorkSectionCMSItem[]
+
+  @@index([project_status])
+  @@index([project_type])
+  @@index([project_visibility_status])
+  @@index([slug])
+}
+
+model ProjectModeContent {
+  id                  String        @id @default(uuid())
+  projectId           String
+  portfolioModeId     String
+  project_description String?
+  project_highlights  String[]
+  project_user_count  Int?
+  project_revenue     Int?
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+  challenge           String?
+  impact              String?
+  solution            String?
+  extra_notes         String?
+  currency            String?       @default("$")
+  portfolioMode       PortfolioMode @relation(fields: [portfolioModeId], references: [id], onDelete: Cascade)
+  project             Project       @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, portfolioModeId])
+  @@index([projectId])
+  @@index([portfolioModeId])
+}
+
+model Experience {
+  id                String                     @id @default(uuid())
+  company_name      String
+  role_title        String
+  employment_type   EmploymentType
+  location          String?
+  start_date        DateTime
+  end_date          DateTime?
+  currently_working Boolean                    @default(false)
+  createdAt         DateTime                   @default(now())
+  updatedAt         DateTime                   @updatedAt
+  experience_image  String?
+  experience_tech   String[]                   @default([])
+  achievements      ExperienceAchievement[]
+  metrics           ExperienceMetric[]
+  modeContents      ExperienceModeContent[]
+  cmsItems          ExperienceSectionCMSItem[]
+
+  @@index([company_name])
+  @@index([start_date])
+  @@index([currently_working])
+}
+
+model ExperienceModeContent {
+  id                     String        @id @default(uuid())
+  experienceId           String
+  portfolioModeId        String
+  experience_description String?
+  experience_highlights  String[]
+  createdAt              DateTime      @default(now())
+  updatedAt              DateTime      @updatedAt
+  experience_summary     String?
+  experience             Experience    @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  portfolioMode          PortfolioMode @relation(fields: [portfolioModeId], references: [id], onDelete: Cascade)
+
+  @@unique([experienceId, portfolioModeId])
+  @@index([experienceId])
+  @@index([portfolioModeId])
+}
+
+model MyDetails {
+  id                  String                 @id @default(uuid())
+  full_name           String
+  profile_image       String?
+  resume_url          String?
+  email               String                 @unique
+  github_url          String?
+  linkedin_url        String?
+  x_url               String?
+  instagram_url       String?
+  discord_url         String?
+  website_url         String?
+  location            String?
+  years_of_experience Int?                   @default(4)
+  createdAt           DateTime               @default(now())
+  updatedAt           DateTime               @updatedAt
+  address             String?
+  country             String?
+  district            String?
+  pin_code            String?
+  state               String?
+  modeContents        MyDetailsModeContent[]
+}
+
+model MyDetailsModeContent {
+  id              String        @id @default(uuid())
+  myDetailsId     String
+  portfolioModeId String
+  headline        String?
+  short_bio       String?
+  detailed_bio    String?
+  highlights      String[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  myDetails       MyDetails     @relation(fields: [myDetailsId], references: [id], onDelete: Cascade)
+  portfolioMode   PortfolioMode @relation(fields: [portfolioModeId], references: [id], onDelete: Cascade)
+
+  @@unique([myDetailsId, portfolioModeId])
+  @@index([myDetailsId])
+  @@index([portfolioModeId])
+}
+
+model PortfolioSection {
+  id        String           @id @default(uuid())
+  key       String           @unique
+  title     String
+  visible   Boolean          @default(true)
+  order     Int              @default(0)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  blocks    PortfolioBlock[]
+
+  @@index([key])
+}
+
+model PortfolioBlock {
+  id              String               @id @default(uuid())
+  sectionId       String
+  portfolioModeId String?
+  blockNumber     Int
+  type            PortfolioBlockType   @default(CARD)
+  visible         Boolean              @default(true)
+  label           String?
+  heading         String?
+  subheading      String?
+  description     String?
+  imageUrl        String?
+  imageAlt        String?
+  ctaText         String?
+  ctaUrl          String?
+  ctaType         String?
+  ctaVisible      Boolean              @default(true)
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+  portfolioMode   PortfolioMode?       @relation(fields: [portfolioModeId], references: [id])
+  section         PortfolioSection     @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  items           PortfolioBlockItem[]
+
+  @@index([sectionId])
+  @@index([portfolioModeId])
+  @@index([blockNumber])
+}
+
+model PortfolioBlockItem {
+  id        String                 @id @default(uuid())
+  blockId   String
+  type      PortfolioBlockItemType @default(TEXT)
+  content   String
+  url       String?
+  order     Int                    @default(0)
+  visible   Boolean                @default(true)
+  createdAt DateTime               @default(now())
+  updatedAt DateTime               @updatedAt
+  block     PortfolioBlock         @relation(fields: [blockId], references: [id], onDelete: Cascade)
+
+  @@index([blockId])
+  @@index([order])
+}
+
+model ExperienceMetric {
+  id           String     @id @default(uuid())
+  experienceId String
+  label        String
+  value        String
+  order        Int        @default(0)
+  visible      Boolean    @default(true)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+
+  @@index([experienceId])
+  @@index([order])
+}
+
+model ExperienceAchievement {
+  id           String     @id @default(uuid())
+  experienceId String
+  content      String
+  order        Int        @default(0)
+  visible      Boolean    @default(true)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+
+  @@index([experienceId])
+  @@index([order])
+}
+
+model ProjectHighlight {
+  id        String   @id @default(uuid())
+  projectId String
+  content   String
+  order     Int      @default(0)
+  visible   Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([order])
+}
+
+model ExperienceSectionCMS {
+  id              String                     @id @default(uuid())
+  key             String                     @unique @default("EXPERIENCE_MAIN")
+  defaultActiveId String?
+  visible         Boolean                    @default(true)
+  createdAt       DateTime                   @default(now())
+  updatedAt       DateTime                   @updatedAt
+  items           ExperienceSectionCMSItem[]
+}
+
+model ExperienceSectionCMSItem {
+  id               String               @id @default(uuid())
+  sectionId        String
+  experienceId     String
+  displayOrder     Int                  @default(0)
+  visible          Boolean              @default(true)
+  isFeatured       Boolean              @default(false)
+  showYear         Boolean              @default(true)
+  showRole         Boolean              @default(true)
+  showCompany      Boolean              @default(true)
+  showDescription  Boolean              @default(true)
+  showTechnologies Boolean              @default(true)
+  showAchievements Boolean              @default(true)
+  showMetrics      Boolean              @default(true)
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
+  experience       Experience           @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  section          ExperienceSectionCMS @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@unique([sectionId, experienceId])
+  @@index([sectionId])
+  @@index([experienceId])
+  @@index([displayOrder])
+}
+
+model SelectedWorkSectionCMS {
+  id        String                       @id @default(uuid())
+  key       String                       @unique @default("SELECTED_WORK_MAIN")
+  visible   Boolean                      @default(true)
+  createdAt DateTime                     @default(now())
+  updatedAt DateTime                     @updatedAt
+  items     SelectedWorkSectionCMSItem[]
+}
+
+model SelectedWorkSectionCMSItem {
+  id               String                 @id @default(uuid())
+  sectionId        String
+  projectId        String
+  displayOrder     Int                    @default(0)
+  visible          Boolean                @default(true)
+  offset           String?
+  customNumber     String?
+  showOneLiner     Boolean                @default(true)
+  showDescription  Boolean                @default(true)
+  showTechnologies Boolean                @default(true)
+  showHighlights   Boolean                @default(true)
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
+  project          Project                @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  section          SelectedWorkSectionCMS @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@unique([sectionId, projectId])
+  @@index([sectionId])
+  @@index([projectId])
+  @@index([displayOrder])
+}
+
+model ProjectShowcaseSectionCMS {
+  id        String                          @id @default(uuid())
+  key       String                          @unique @default("PROJECT_SHOWCASE_MAIN")
+  visible   Boolean                         @default(true)
+  createdAt DateTime                        @default(now())
+  updatedAt DateTime                        @updatedAt
+  items     ProjectShowcaseSectionCMSItem[]
+}
+
+model ProjectShowcaseSectionCMSItem {
+  id               String                    @id @default(uuid())
+  sectionId        String
+  projectId        String
+  displayOrder     Int                       @default(0)
+  visible          Boolean                   @default(true)
+  showDescription  Boolean                   @default(true)
+  showTechnologies Boolean                   @default(true)
+  showViewAction   Boolean                   @default(true)
+  createdAt        DateTime                  @default(now())
+  updatedAt        DateTime                  @updatedAt
+  project          Project                   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  section          ProjectShowcaseSectionCMS @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@unique([sectionId, projectId])
+  @@index([sectionId])
+  @@index([projectId])
+  @@index([displayOrder])
+}
+
+model HeroSectionCMS {
+  id              String            @id @default(uuid())
+  key             String            @unique @default("HERO_NODES_MAIN")
+  centerNodeLabel String            @default("blankdev")
+  centerLogoUrl   String?
+  visible         Boolean           @default(true)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  items           HeroNodeCMSItem[]
+}
+
+model HeroNodeCMSItem {
+  id                  String         @id @default(uuid())
+  sectionId           String
+  nodeId              String
+  label               String
+  title               String
+  description         String
+  techStack           String[]       @default([])
+  ctaLabel            String?        @default("View projects")
+  ctaHref             String?        @default("/#work")
+  image               String?
+  displayOrder        Int            @default(0)
+  visible             Boolean        @default(true)
+  cardWidth           String?
+  cardHeight          String?
+  cardMinHeight       String?
+  cardImageHeight     String?
+  titleFontSize       String?
+  descriptionFontSize String?
+  techBadgeFontSize   String?
+  ctaFontSize         String?
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+  section             HeroSectionCMS @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@index([sectionId])
+  @@index([nodeId])
+  @@index([displayOrder])
+}
+
+model WebsiteInteraction {
+  resume_downloaded   Int      @default(0)
+  contact_form_submit Int      @default(0)
+  contact_interested  Int      @default(0)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  id                  Int      @id @default(1)
+  scrolled_past_hero  Int      @default(0)
+}
+
+model ProjectInteraction {
+  id              String   @id @default(uuid())
+  projectId       String   @unique
+  project_clicked Int      @default(0)
+  project_viewed  Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  project         Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model MobileHeroSkill {
+  id           String   @id @default(uuid())
+  text         String
+  displayOrder Int      @default(0)
+  visible      Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([displayOrder])
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  FREELANCE
+  INTERNSHIP
+  SELF_EMPLOYED
+}
+
+enum ProjectStatus {
+  PLANNED
+  IN_PROGRESS
+  ACTIVE
+  COMPLETED
+  ARCHIVED
+}
+
+enum ProjectType {
+  PERSONAL
+  PROFESSIONAL
+  OPEN_SOURCE
+  CLIENT_WORK
+  SIDE_PROJECT
+}
+
+enum ProjectVisibilityStatus {
+  PUBLIC
+  PRIVATE
+  UNLISTED
+  DRAFT
+}
+
+enum PortfolioBlockType {
+  HERO
+  CARD
+  PROFILE
+  TEXT
+  LIST
+  MEDIA
+  CTA
+}
+
+enum PortfolioBlockItemType {
+  TEXT
+  BULLET
+  LINK
+}

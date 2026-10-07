@@ -1,0 +1,476 @@
+@import "tailwindcss";
+/* Lenis disabled — native scroll. Uncomment to restore Lenis styles. */
+/* @import "lenis/dist/lenis.css"; */
+
+
+:root {
+  --background: #111d13;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans), var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono), var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-display), var(--font-sans), sans-serif;
+  --font-heading: var(--font-display), var(--font-sans), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-outfit: var(--font-outfit), sans-serif;
+  --font-jetbrains: var(--font-jetbrains-mono), monospace;
+  --font-zen-dots: var(--font-zen-dots), cursive, sans-serif;
+  --font-zen: var(--font-zen-dots), cursive, sans-serif;
+  --font-pixelify: var(--font-pixelify-sans), monospace, sans-serif;
+  --font-pixelify-sans: var(--font-pixelify-sans), monospace, sans-serif;
+  --font-pixe: var(--font-pixelify-sans), monospace, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111d13;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+
+/* —— Global CTA Hover Cursors —— */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
+}
+
+/* —— CTA Highlight: Primary Action Buttons —— */
+.cta-highlight-get-in-touch {
+  background-color: #415d43 !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(65, 93, 67, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-highlight-get-in-touch:hover {
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  background-color: #4d6e4f !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(65, 93, 67, 0.6), 0 0 40px rgba(65, 93, 67, 0.3) !important;
+  transform: translateY(-1px);
+}
+
+/* —— Custom Site-wide Scrollbar —— */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) #09090b;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  border: 2px solid #09090b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+::-webkit-scrollbar-corner {
+  background: #09090b;
+}
+
+/* —— No Scrollbar Utility —— */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* —— Small / Sleek Scrollbar Utility —— */
+.thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+.thin-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  border: none;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+
+/* —— About Me: animated glow borders —— */
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes glow-spin {
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+.glow-frame {
+  position: relative;
+  overflow: hidden;
+  padding: 1px;
+}
+
+.glow-frame::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 40%,
+    rgba(246, 247, 64, 1) 50%,
+    transparent 60%
+  );
+  animation: glow-spin 4s linear infinite;
+}
+
+.glow-frame--paused::before {
+  animation-play-state: paused;
+}
+
+.glow-frame__inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #09090b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-frame::before {
+    animation: none;
+    background: rgba(161, 161, 170, 0.35);
+  }
+}
+
+/* —— Selected Work / archives: glass (navbar uses its own Tailwind blur) —— */
+.glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(9, 9, 11, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.12),
+    0 0 32px rgba(255, 255, 255, 0.06);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.glass-panel:hover,
+.glass-panel--active {
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow:
+    0 0 16px rgba(255, 255, 255, 0.22),
+    0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+/* Project Showcase scrub cards — solid (no backdrop-filter under GSAP x) */
+.showcase-panel {
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.04);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.showcase-panel:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Showcase track — GSAP owns the transform; will-change toggled while active */
+.project-showcase__track {
+  backface-visibility: hidden;
+}
+
+/* —— Experience: milestone dots + sticky panel fade —— */
+.experience-dot--passed {
+  border-color: rgba(244, 244, 245, 0.45);
+  background-color: rgba(244, 244, 245, 0.35);
+}
+
+.experience-dot--active {
+  border-color: rgb(244, 244, 245);
+  background-color: rgb(244, 244, 245);
+  transform: scale(1.15);
+  box-shadow:
+    0 0 10px rgba(244, 244, 245, 0.75),
+    0 0 22px rgba(244, 244, 245, 0.35);
+}
+
+@keyframes experience-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.experience-panel-enter {
+  animation: experience-fade 0.35s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-panel-enter {
+    animation: none;
+  }
+
+  .experience-dot {
+    transition: none;
+  }
+}
+
+/* —— Skills: CSS marquee (infinite) —— */
+.skills-carousel {
+  /* —— Carousel knobs (edit these) —— */
+  --skills-marquee-duration: 40s; /* lower = faster; higher = slower */
+  --skills-marquee-timing: linear; /* must stay linear for a seamless loop */
+}
+
+@keyframes skills-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    /* 4 identical groups → move exactly one group (−25%) then snap = seamless */
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.skills-track {
+  display: flex;
+  width: max-content;
+  animation: skills-marquee var(--skills-marquee-duration) var(--skills-marquee-timing)
+    infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-track {
+    animation: none;
+  }
+}
+
+.skills-carousel:hover .skills-track {
+  animation-play-state: paused;
+}
+
+.skill-item__tooltip {
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  z-index: 20;
+  transform: translate3d(-50%, 0, 0);
+  white-space: nowrap;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #111d13;
+  padding: 0.25rem 0.625rem;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+}
+
+.skill-item:hover .skill-item__tooltip,
+.skill-item:focus-within .skill-item__tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Chip hover: solid bg only — no backdrop-filter / blur */
+.skill-item__btn {
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+/* —— Tech Stack Badges & Tooltips —— */
+.tech-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-badge__tooltip {
+  pointer-events: none;
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 50%;
+  transform: translateX(-50%) translateY(3px);
+  z-index: 50;
+  white-space: nowrap;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #111d13;
+  padding: 0.25rem 0.6rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+}
+
+.tech-badge__tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px 4px 0 4px;
+  border-style: solid;
+  border-color: #111d13 transparent transparent transparent;
+}
+
+.tech-badge:hover .tech-badge__tooltip,
+.tech-badge:focus-within .tech-badge__tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* —— Mobile hero: typewriter cursor —— */
+@keyframes hero-mobile-cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-mobile-cursor {
+  animation: hero-mobile-cursor-blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-mobile-cursor {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 1;
+  inherits: false;
+}
+
+.count {
+  --num: 1;
+  counter-reset: number var(--num);
+  animation: count-up 3s steps(8, end) var(--delay) infinite;
+}
+
+.count::after {
+  content: counter(number);
+}
+
+@keyframes count-up {
+  from {
+    --num: 1;
+  }
+  to {
+    --num: 9;
+  }
+}
+
+
+
+#signature {
+  fill:transparent;
+  stroke-dasharray: 1616;
+  stroke-dashoffset: 1616;
+  animation: draw 4s ease infinite;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+
+/* Terminal Typing Effect & Bottom Blinking Cursor */
+.terminal-bottom-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 2.5px;
+  background-color: #cfff04;
+  margin-left: 3px;
+  vertical-align: -1px;
+  box-shadow: 0 0 8px rgba(207, 255, 4, 0.7);
+  animation: terminal-cursor-blink 0.8s step-end infinite;
+}
+
+@keyframes terminal-cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.customtyper {
+  display: inline-block;
+  white-space: nowrap;
+}
+

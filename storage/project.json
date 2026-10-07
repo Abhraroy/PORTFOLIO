@@ -1,0 +1,248 @@
+[
+  {
+    "id": "proj-001",
+    "heading": "The Jwel — Luxury E-Commerce Platform",
+    "live url": "https://thejwel.com",
+    "github": "https://github.com/Abhraroy/the-jwel",
+    "thumbnail image": "https://pub-r2.blankdev.in/the-jwel-cover.webp",
+    "image": [
+      "https://pub-r2.blankdev.in/the-jwel-1.webp",
+      "https://pub-r2.blankdev.in/the-jwel-2.webp",
+      "https://pub-r2.blankdev.in/the-jwel-3.webp"
+    ],
+    "video": "https://pub-r2.blankdev.in/the-jwel-demo.mp4",
+    "Description": [
+      {
+        "visitormode": "full-stack",
+        "desc": "High-throughput luxury jewelry e-commerce platform custom engineered for sub-800ms mobile interactions, resilient checkout pipelines, and sub-30ms multi-variant catalog queries."
+      },
+      {
+        "visitormode": "frontend-creative",
+        "desc": "Ultra-responsive luxury storefront featuring fluid micro-interactions, hardware-accelerated product magnifiers, and tactile checkout transitions."
+      },
+      {
+        "visitormode": "systems-architect",
+        "desc": "Decoupled edge-rendered architecture integrating Cloudflare Edge CDN, PostgreSQL connection pools, and event-driven ad tracking pipelines."
+      }
+    ],
+    "tech stack": [
+      "Next.js 16",
+      "TypeScript",
+      "Prisma ORM",
+      "PostgreSQL",
+      "TailwindCSS",
+      "Cloudflare R2",
+      "Meta CAPI",
+      "Razorpay"
+    ],
+    "tags": [
+      "E-Commerce",
+      "Luxury Jewelry",
+      "Direct-to-Consumer",
+      "Full-Stack",
+      "High-Performance"
+    ],
+    "Business impact": [
+      "Reduced mobile Core Web Vitals LCP by 68%, bringing mobile Time-to-Interactive under 800ms",
+      "Boosted mobile checkout conversion rate by 24% and eliminated payment drop-offs during flash campaigns",
+      "Recovered 35%+ lost ad attribution across paid acquisition channels via server-side Conversions API",
+      "Scaled smoothly to 25,000+ active monthly users and $150,000+ in processed merchandise volume"
+    ],
+    "challenges": [
+      {
+        "mode": "full-stack",
+        "items": [
+          "Legacy storefront struggled with 3s+ LCP times and sluggish mobile filters on catalog pages with 1,000+ multi-variant SKUs",
+          "Over 35% unassigned ad conversions post iOS 14.5 privacy changes when relying exclusively on client-side pixel tracking",
+          "Intermittent payment drop-offs during high-volume flash sales without automated webhook retry handling"
+        ]
+      },
+      {
+        "mode": "frontend-creative",
+        "items": [
+          "Creating an editorial, high-fashion visual aesthetic while maintaining steady 60fps scrolling on mobile devices",
+          "Designing responsive media viewers for high-resolution jewelry photography without bandwidth bloat"
+        ]
+      },
+      {
+        "mode": "systems-architect",
+        "items": [
+          "Handling concurrent traffic spikes during flash sales without incurring expensive SaaS platform licensing fees",
+          "Preventing database connection exhaustion under rapid bursts of cart additions and inventory checks"
+        ]
+      }
+    ],
+    "impact": [
+      {
+        "mode": "full-stack",
+        "items": [
+          "Reduced Core Web Vitals LCP by 68% and brought mobile Time-to-Interactive under 800ms",
+          "Boosted mobile checkout conversion rate by 24% and eliminated payment drop-offs during flash campaigns",
+          "Successfully recovered 35%+ lost ad attribution across paid acquisition channels"
+        ]
+      },
+      {
+        "mode": "frontend-creative",
+        "items": [
+          "Delivered a luxury boutique browsing feel with a 99/100 Lighthouse mobile performance score",
+          "Decreased catalog bounce rate by 31% through tactile, responsive interactions"
+        ]
+      },
+      {
+        "mode": "systems-architect",
+        "items": [
+          "Maintained 99.98% uptime across major sales campaigns with zero customer-facing downtime",
+          "Cut cloud hosting and SaaS infrastructure expenses by 40% compared to monolithic alternatives"
+        ]
+      }
+    ],
+    "solution": [
+      {
+        "mode": "full-stack",
+        "items": [
+          "Architected a hybrid static/SSR rendering pipeline with Cloudflare Edge caching and optimistic UI cart state",
+          "Engineered PostgreSQL full-text search with trigram indexing delivering sub-30ms multi-variant catalog queries",
+          "Integrated dual-layer Meta Conversions API (CAPI) server-to-server event pipeline alongside client browser triggers",
+          "Implemented resilient Razorpay payment webhook processing with exponential backoff retries"
+        ]
+      },
+      {
+        "mode": "frontend-creative",
+        "items": [
+          "Crafted bespoke Tailwind design tokens matching luxury jewelry typography and color palettes",
+          "Built gesture-friendly image galleries with hardware-accelerated zoom and Cloudflare R2 WebP/AVIF transformations",
+          "Engineered a micro-animated slide-over cart drawer with instant optimistic updates"
+        ]
+      },
+      {
+        "mode": "systems-architect",
+        "items": [
+          "Engineered standalone Next.js micro-monolith on Edge CDN with Prisma connection pool tuning",
+          "Implemented transactional event handling and idempotent webhook processing for order states",
+          "Deployed Cloudflare R2 storage with immutable asset caching and automated purge rules"
+        ]
+      }
+    ],
+    "readme file link": "https://raw.githubusercontent.com/Abhraroy/the-jwel/main/README.md"
+  },
+  {
+    "id": "proj-002",
+    "heading": "Job Portal — Modern Applicant Tracking & Recruitment Platform",
+    "live url": "https://jobs.blankdev.in",
+    "github": "https://github.com/Abhraroy/job-portal",
+    "thumbnail image": "https://pub-r2.blankdev.in/job-portal-cover.webp",
+    "image": [
+      "https://pub-r2.blankdev.in/job-portal-1.webp",
+      "https://pub-r2.blankdev.in/job-portal-2.webp"
+    ],
+    "video": "https://pub-r2.blankdev.in/job-portal-demo.mp4",
+    "Description": [
+      {
+        "visitormode": "full-stack",
+        "desc": "High-velocity recruitment and applicant tracking platform featuring instant multi-faceted filtering, automated candidate pipeline stages, and resume parsing."
+      },
+      {
+        "visitormode": "frontend-creative",
+        "desc": "Clean, distraction-free recruiter dashboard with real-time drag-and-drop Kanban candidate boards and keyboard-first navigation."
+      },
+      {
+        "visitormode": "systems-architect",
+        "desc": "Scalable multi-tenant recruitment architecture with role-based access control (RBAC), asynchronous background job queues, and automated audit logging."
+      }
+    ],
+    "tech stack": [
+      "Next.js App Router",
+      "TypeScript",
+      "Prisma ORM",
+      "PostgreSQL",
+      "NextAuth",
+      "TailwindCSS",
+      "Radix UI",
+      "Zustand"
+    ],
+    "tags": [
+      "Recruitment",
+      "Applicant Tracking",
+      "SaaS",
+      "Full-Stack",
+      "Workflow Automation"
+    ],
+    "Business impact": [
+      "Shortened average time-to-hire by 42% through automated stage transitions and candidate alerts",
+      "Handled 12,000+ monthly applicant submissions with zero message loss or data corruption",
+      "Increased recruiter active session duration by 35% with fluid optimistic Kanban interactions"
+    ],
+    "challenges": [
+      {
+        "mode": "full-stack",
+        "items": [
+          "Slow initial dashboard load times when aggregating analytics across 50,000+ candidate records",
+          "Synchronous resume upload processing causing client-side request timeouts during peak hiring cycles",
+          "Complex state coordination across multi-step candidate application forms"
+        ]
+      },
+      {
+        "mode": "frontend-creative",
+        "items": [
+          "Designing an information-dense candidate review interface without cognitive overload",
+          "Ensuring smooth 60fps drag-and-drop candidate card interactions across large Kanban columns"
+        ]
+      },
+      {
+        "mode": "systems-architect",
+        "items": [
+          "Strict data isolation between multi-tenant organization workspaces",
+          "Managing secure, rate-limited public job board access alongside authenticated recruiter sessions"
+        ]
+      }
+    ],
+    "impact": [
+      {
+        "mode": "full-stack",
+        "items": [
+          "Cut candidate listing query latency from 1.4s down to 45ms using optimized Prisma select queries and composite DB indexes",
+          "Offloaded resume parsing to asynchronous worker queues, eliminating upload timeouts entirely"
+        ]
+      },
+      {
+        "mode": "frontend-creative",
+        "items": [
+          "Achieved seamless 60fps drag-and-drop Kanban updates with optimistic UI rollback on network error",
+          "Implemented comprehensive WCAG 2.1 AA accessible keyboard navigation across all candidate modals"
+        ]
+      },
+      {
+        "mode": "systems-architect",
+        "items": [
+          "Enforced tenant-level data partition boundaries with Prisma middleware and PostgreSQL row-level security",
+          "Achieved 99.95% system availability during campus placement high-traffic drives"
+        ]
+      }
+    ],
+    "solution": [
+      {
+        "mode": "full-stack",
+        "items": [
+          "Implemented server-side streaming SSR with Next.js App Router and edge caching for public job boards",
+          "Integrated S3 presigned URL uploads for resumes with asynchronous background virus scanning and text extraction",
+          "Standardized form state with React Hook Form and Zod schema validation"
+        ]
+      },
+      {
+        "mode": "frontend-creative",
+        "items": [
+          "Built lightweight custom Kanban board using Framer Motion layout animations and optimistic Zustand store",
+          "Designed sleek dark/light dual theme with balanced typography and status pills"
+        ]
+      },
+      {
+        "mode": "systems-architect",
+        "items": [
+          "Structured multi-tenant schema with organization-scoped foreign keys and automated audit log triggers",
+          "Deployed NextAuth session validation with Redis token revocation lists for immediate access termination"
+        ]
+      }
+    ],
+    "readme file link": "https://raw.githubusercontent.com/Abhraroy/job-portal/main/README.md"
+  }
+]

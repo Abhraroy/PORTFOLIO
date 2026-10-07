@@ -1,0 +1,660 @@
+[
+  {
+    "id": "22222222-2222-2222-2222-222222222221",
+    "slug": "the-jwel",
+    "project_name": "The Jwel",
+    "project_image": "https://pub-r2.blankdev.in/the-jwel-cover.webp",
+    "project_images": [
+      "https://pub-r2.blankdev.in/the-jwel-1.webp",
+      "https://pub-r2.blankdev.in/the-jwel-2.webp",
+      "https://pub-r2.blankdev.in/the-jwel-3.webp"
+    ],
+    "project_videos": [
+      "https://pub-r2.blankdev.in/the-jwel-demo.mp4"
+    ],
+    "project_url": "https://thejwel.com",
+    "project_github": "https://github.com/Abhraroy/the-jwel",
+    "project_md_url": "/content/projects/the-jwel.md",
+    "project_tags": [
+      "E-Commerce",
+      "Luxury Jewelry",
+      "Direct-to-Consumer",
+      "Full-Stack"
+    ],
+    "project_tech": [
+      "Next.js 16",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "TailwindCSS",
+      "Cloudflare R2",
+      "Meta CAPI",
+      "Razorpay"
+    ],
+    "project_status": "ACTIVE",
+    "project_type": "PROFESSIONAL",
+    "project_visibility_status": "PUBLIC",
+    "createdAt": "2026-01-10T10:00:00.000Z",
+    "updatedAt": "2026-09-15T00:00:00.000Z",
+    "interactions": {
+      "project_viewed": 1420,
+      "project_clicked": 380
+    },
+    "views": {
+      "selected_work": {
+        "visible": true,
+        "displayOrder": 0,
+        "offset": "up",
+        "customNumber": "01",
+        "showOneLiner": true,
+        "showDescription": true,
+        "showTechnologies": true,
+        "showHighlights": true
+      },
+      "showcase": {
+        "visible": true,
+        "displayOrder": 0,
+        "showDescription": true,
+        "showTechnologies": true,
+        "showViewAction": true
+      }
+    },
+    "highlights": [
+      {
+        "id": "h-jwel-1",
+        "content": "Sub-800ms Time-to-Interactive on mobile 4G networks",
+        "order": 0,
+        "visible": true
+      },
+      {
+        "id": "h-jwel-2",
+        "content": "Zero-downtime database migrations with Prisma and PostgreSQL",
+        "order": 1,
+        "visible": true
+      },
+      {
+        "id": "h-jwel-3",
+        "content": "Custom Cloudflare Workers edge caching and WebP/AVIF delivery pipeline",
+        "order": 2,
+        "visible": true
+      },
+      {
+        "id": "h-jwel-4",
+        "content": "Dual-layer Meta Conversions API (CAPI) recovering 35%+ lost attribution",
+        "order": 3,
+        "visible": true
+      }
+    ],
+    "mode_contents": {
+      "full-stack": {
+        "mode_name": "Full-Stack Engineer",
+        "project_description": "Luxury jewelry e-commerce platform custom engineered for high-throughput, instant multi-variant search, and resilient checkout flows.",
+        "challenge": [
+          "Legacy storefront struggled with 3s+ LCP times and sluggish mobile filters on catalog pages with 1,000+ multi-variant SKUs.",
+          "Over 35% unassigned ad conversions post iOS 14.5 privacy changes when relying exclusively on client-side pixel tracking.",
+          "Intermittent payment drop-offs during high-volume flash sales without automated webhook retry handling."
+        ],
+        "solution": [
+          "Architected a hybrid static/SSR rendering pipeline with Cloudflare Edge caching and optimistic UI cart state.",
+          "Engineered PostgreSQL full-text search with trigram indexing delivering sub-30ms multi-variant catalog queries.",
+          "Integrated dual-layer Meta Conversions API (CAPI) server-to-server event pipeline alongside client browser triggers.",
+          "Implemented resilient Razorpay payment webhook processing with exponential backoff retries."
+        ],
+        "impact": [
+          "Reduced Core Web Vitals LCP by 68% and brought mobile Time-to-Interactive under 800ms.",
+          "Boosted mobile checkout conversion rate by 24% and eliminated payment drop-offs during flash campaigns.",
+          "Successfully recovered 35%+ lost ad attribution across paid acquisition channels."
+        ],
+        "project_highlights": [
+          "Edge-rendered dynamic product grid with sub-30ms inventory queries",
+          "Automated webhook retry pipeline for Razorpay payment webhooks",
+          "Dual-layer tracking combining client pixel and server-side Conversions API"
+        ],
+        "project_user_count": 25000,
+        "project_revenue": 150000,
+        "currency": "$",
+        "extra_notes": "Implemented PCI-DSS compliant checkout and automated inventory alerts."
+      },
+      "frontend-creative": {
+        "mode_name": "Frontend & Creative",
+        "project_description": "Ultra-responsive luxury storefront featuring micro-interactions, fluid product image magnifiers, and tactile checkout transitions.",
+        "challenge": [
+          "Creating an editorial, high-fashion visual aesthetic while maintaining steady 60fps scrolling on mobile devices.",
+          "Designing responsive media viewers for high-resolution jewelry photography without bandwidth bloat."
+        ],
+        "solution": [
+          "Crafted bespoke Tailwind design tokens matching luxury jewelry typography and color palettes.",
+          "Built gesture-friendly image galleries with hardware-accelerated zoom and Cloudflare R2 WebP/AVIF transformations.",
+          "Engineered a micro-animated slide-over cart drawer with instant optimistic updates."
+        ],
+        "impact": [
+          "Delivered a luxury boutique browsing feel with a 99/100 Lighthouse mobile performance score.",
+          "Decreased catalog bounce rate by 31% through tactile, responsive interactions."
+        ],
+        "project_highlights": [
+          "Curated typography and luxury color palette matching high-end jewelry branding",
+          "Fluid image gallery with hardware-accelerated pan and zoom",
+          "Micro-animated cart drawer with instant optimistic updates"
+        ],
+        "project_user_count": 25000,
+        "project_revenue": 150000,
+        "currency": "$",
+        "extra_notes": "Built bespoke UI components avoiding heavy external UI library bloat."
+      },
+      "systems-architect": {
+        "mode_name": "Systems Architect",
+        "project_description": "Decoupled e-commerce architecture integrating Cloudflare Edge CDN, PostgreSQL connection pools, and event-driven ad tracking pipelines.",
+        "challenge": [
+          "Handling concurrent traffic spikes during flash sales without incurring expensive SaaS platform licensing fees.",
+          "Preventing database connection exhaustion under rapid bursts of cart additions and inventory checks."
+        ],
+        "solution": [
+          "Engineered standalone Next.js micro-monolith on Edge CDN with Prisma connection pool tuning.",
+          "Implemented transactional event handling and idempotent webhook processing for order states.",
+          "Deployed Cloudflare R2 storage with immutable asset caching and automated purge rules."
+        ],
+        "impact": [
+          "Maintained 99.98% uptime across major sales campaigns with zero customer-facing downtime.",
+          "Cut cloud hosting and SaaS infrastructure expenses by 40% compared to monolithic alternatives."
+        ],
+        "project_highlights": [
+          "PostgreSQL trigram indexing for high-speed catalog fuzzy queries",
+          "Resilient webhook event dispatcher with exponential backoff retries",
+          "Cloudflare R2 storage architecture with asset versioning and immutable caching"
+        ],
+        "project_user_count": 25000,
+        "project_revenue": 150000,
+        "currency": "$",
+        "extra_notes": "Engineered schema migrations with zero customer downtime."
+      }
+    }
+  },
+  {
+    "id": "22222222-2222-2222-2222-222222222222",
+    "slug": "job-portal",
+    "project_name": "Job Portal",
+    "project_image": "https://pub-r2.blankdev.in/job-portal-cover.webp",
+    "project_images": [
+      "https://pub-r2.blankdev.in/job-portal-1.webp",
+      "https://pub-r2.blankdev.in/job-portal-2.webp"
+    ],
+    "project_videos": [
+      "https://pub-r2.blankdev.in/job-portal-demo.mp4"
+    ],
+    "project_url": "https://jobs.blankdev.in",
+    "project_github": "https://github.com/Abhraroy/job-portal",
+    "project_md_url": "/content/projects/job-portal.md",
+    "project_tags": [
+      "Recruitment",
+      "Applicant Tracking",
+      "SaaS",
+      "Full-Stack"
+    ],
+    "project_tech": [
+      "Next.js App Router",
+      "TypeScript",
+      "Prisma ORM",
+      "PostgreSQL",
+      "NextAuth",
+      "TailwindCSS"
+    ],
+    "project_status": "COMPLETED",
+    "project_type": "PROFESSIONAL",
+    "project_visibility_status": "PUBLIC",
+    "createdAt": "2026-02-15T09:00:00.000Z",
+    "updatedAt": "2026-09-15T00:00:00.000Z",
+    "interactions": {
+      "project_viewed": 980,
+      "project_clicked": 240
+    },
+    "views": {
+      "selected_work": {
+        "visible": true,
+        "displayOrder": 1,
+        "offset": "down",
+        "customNumber": "02",
+        "showOneLiner": true,
+        "showDescription": true,
+        "showTechnologies": true,
+        "showHighlights": true
+      },
+      "showcase": {
+        "visible": true,
+        "displayOrder": 1,
+        "showDescription": true,
+        "showTechnologies": true,
+        "showViewAction": true
+      }
+    },
+    "highlights": [
+      {
+        "id": "h-jobs-1",
+        "content": "Zero N+1 database queries through selective Prisma inclusion and projection",
+        "order": 0,
+        "visible": true
+      },
+      {
+        "id": "h-jobs-2",
+        "content": "Interactive Kanban hiring pipeline with drag-and-drop applicant status changes",
+        "order": 1,
+        "visible": true
+      },
+      {
+        "id": "h-jobs-3",
+        "content": "Granular multi-tenant RBAC separating Candidates, Recruiters, and Admins",
+        "order": 2,
+        "visible": true
+      }
+    ],
+    "mode_contents": {
+      "full-stack": {
+        "mode_name": "Full-Stack Engineer",
+        "project_description": "Multi-tenant recruitment platform and applicant tracking system (ATS) connecting candidates, recruiters, and hiring managers.",
+        "challenge": [
+          "Complex relational schema spanning job listings, candidate profiles, resume attachments, and multi-stage hiring pipelines.",
+          "Enforcing strict role boundaries between Candidates, Recruiters, and System Admins across all API routes.",
+          "Preventing N+1 database query waterfalls during nested applicant list queries."
+        ],
+        "solution": [
+          "Engineered a normalized PostgreSQL schema with Prisma ORM using selective inclusions and projections.",
+          "Constructed an interactive drag-and-drop Kanban hiring pipeline with real-time stage updates.",
+          "Implemented Role-Based Access Control (RBAC) middleware verifying session privileges on protected endpoints."
+        ],
+        "impact": [
+          "Achieved zero N+1 database queries across deep nested relational joins.",
+          "Reduced recruiter candidate screening and stage management time by over 50%.",
+          "Maintained average API response times under 50ms for complex filtered searches."
+        ],
+        "project_highlights": [
+          "Role-Based Access Control (RBAC) across candidates and company accounts",
+          "Dynamic search and multi-facet filtering (location, salary, experience, stack)",
+          "Applicant pipeline dashboard with real-time stage updates"
+        ],
+        "project_user_count": 12000,
+        "project_revenue": null,
+        "currency": "$",
+        "extra_notes": "Implemented automated resume file validation and secure object storage uploads."
+      },
+      "frontend-creative": {
+        "mode_name": "Frontend & Creative",
+        "project_description": "Clean, glassmorphic recruitment UI with responsive recruiter dashboards and streamlined candidate application flows.",
+        "challenge": [
+          "Displaying extensive applicant data, resumes, and hiring stages without creating cognitive overload.",
+          "Ensuring the multi-stage Kanban board is fully responsive and tactile across mobile, tablet, and desktop."
+        ],
+        "solution": [
+          "Designed a modern glassmorphic interface with clear visual hierarchy and color-coded stage tags.",
+          "Built fluid drag-and-drop Kanban boards with animated drop targets and keyboard navigation support.",
+          "Created instant modal previews for resumes and candidate portfolios with zero page reloads."
+        ],
+        "impact": [
+          "Significantly elevated recruiter daily usability with smooth, tactile workflow management.",
+          "Reduced candidate application drop-off with a clean, distraction-free submission flow."
+        ],
+        "project_highlights": [
+          "Fluid drag-and-drop Kanban boards with visual drop targets",
+          "Glassmorphic cards and intuitive tag badges",
+          "Accessible form validation with instant inline error handling"
+        ],
+        "project_user_count": 12000,
+        "project_revenue": null,
+        "currency": "$",
+        "extra_notes": "Designed for zero friction across mobile and desktop displays."
+      },
+      "systems-architect": {
+        "mode_name": "Systems Architect",
+        "project_description": "Scalable multi-tenant hiring engine with strict data isolation, index optimization, and secure session management.",
+        "challenge": [
+          "Ensuring strict tenant isolation across enterprise employer accounts on a shared database.",
+          "Optimizing compound index strategies for multi-facet candidate searches across hundreds of thousands of rows."
+        ],
+        "solution": [
+          "Structured compound indices on [companyId, status] and [jobId, stage] for instant filtering.",
+          "Enforced tenant scoping at the Prisma query boundary via centralized middleware.",
+          "Architected secure file validation and direct-to-cloud signed upload URLs for applicant resumes."
+        ],
+        "impact": [
+          "Guaranteed multi-tenant data isolation with zero risk of cross-tenant data leakage.",
+          "Delivered sub-40ms search retrieval speeds across full applicant databases."
+        ],
+        "project_highlights": [
+          "Normalized relational data architecture eliminating redundant data duplication",
+          "Strict tenant isolation enforced at database query boundaries",
+          "Compound indices ensuring instant filtering by role, location, and salary"
+        ],
+        "project_user_count": 12000,
+        "project_revenue": null,
+        "currency": "$",
+        "extra_notes": "Engineered clean migration path for enterprise multi-tenancy."
+      }
+    }
+  },
+  {
+    "id": "22222222-2222-2222-2222-222222222223",
+    "slug": "ai-chatbot",
+    "project_name": "AI Chatbot",
+    "project_image": "https://pub-r2.blankdev.in/ai-chatbot-cover.webp",
+    "project_images": [
+      "https://pub-r2.blankdev.in/ai-chatbot-1.webp",
+      "https://pub-r2.blankdev.in/ai-chatbot-2.webp"
+    ],
+    "project_videos": [
+      "https://pub-r2.blankdev.in/ai-chatbot-demo.mp4"
+    ],
+    "project_url": "https://ai.blankdev.in",
+    "project_github": "https://github.com/Abhraroy/ai-chatbot",
+    "project_md_url": "/content/projects/ai-chatbot.md",
+    "project_tags": [
+      "Artificial Intelligence",
+      "RAG",
+      "Vector DB",
+      "Open Source"
+    ],
+    "project_tech": [
+      "Vector DB (pgvector / Qdrant)",
+      "OpenAI Embeddings",
+      "Next.js Server Actions",
+      "FastAPI",
+      "TypeScript",
+      "Python"
+    ],
+    "project_status": "COMPLETED",
+    "project_type": "OPEN_SOURCE",
+    "project_visibility_status": "PUBLIC",
+    "createdAt": "2026-03-01T12:00:00.000Z",
+    "updatedAt": "2026-09-15T00:00:00.000Z",
+    "interactions": {
+      "project_viewed": 1850,
+      "project_clicked": 490
+    },
+    "views": {
+      "selected_work": {
+        "visible": true,
+        "displayOrder": 2,
+        "offset": "up",
+        "customNumber": "03",
+        "showOneLiner": true,
+        "showDescription": true,
+        "showTechnologies": true,
+        "showHighlights": true
+      },
+      "showcase": {
+        "visible": true,
+        "displayOrder": 2,
+        "showDescription": true,
+        "showTechnologies": true,
+        "showViewAction": true
+      }
+    },
+    "highlights": [
+      {
+        "id": "h-ai-1",
+        "content": "Context-grounded RAG pipeline with strict negative hallucination guardrails",
+        "order": 0,
+        "visible": true
+      },
+      {
+        "id": "h-ai-2",
+        "content": "Sub-400ms time-to-first-token streaming via SSE and Next.js Server Actions",
+        "order": 1,
+        "visible": true
+      },
+      {
+        "id": "h-ai-3",
+        "content": "Semantic markdown chunking with metadata tagging and cosine similarity thresholds",
+        "order": 2,
+        "visible": true
+      }
+    ],
+    "mode_contents": {
+      "full-stack": {
+        "mode_name": "Full-Stack Engineer",
+        "project_description": "Enterprise-grade Retrieval-Augmented Generation (RAG) conversational agent providing grounded answers from product documentation.",
+        "challenge": [
+          "Preventing LLM hallucinations and ensuring responses strictly reference verified knowledge docs.",
+          "Minimizing token costs from sending oversized documentation contexts in prompts.",
+          "Eliminating user perceived latency while waiting for multi-sentence LLM completions."
+        ],
+        "solution": [
+          "Engineered hybrid markdown chunking pipeline with metadata preservation and cosine similarity retrieval in vector DB.",
+          "Enforced strict negative constraints in system prompt directives prohibiting speculative answers.",
+          "Implemented Server-Sent Events (SSE) streaming pipeline via Next.js Server Actions for real-time token delivery."
+        ],
+        "impact": [
+          "Achieved sub-400ms time-to-first-token (TTFT) for seamless conversational perception.",
+          "Eliminated over 95% of factual inaccuracies through strict grounding guardrails.",
+          "Decreased average user support resolution time from hours to instant conversational answers."
+        ],
+        "project_highlights": [
+          "Semantic chunking pipeline with metadata preservation",
+          "Low-latency streaming response buffer with Markdown rendering",
+          "Negative constraint guardrails preventing out-of-context answers"
+        ],
+        "project_user_count": 8500,
+        "project_revenue": null,
+        "currency": "$",
+        "extra_notes": "Implemented telemetry logging for query latency and token cost analysis."
+      },
+      "frontend-creative": {
+        "mode_name": "Frontend & Creative",
+        "project_description": "Immersive conversational terminal with streaming code blocks, copy utilities, and animated AI thinking states.",
+        "challenge": [
+          "Rendering real-time streaming markdown tokens smoothly without layout jumping or UI flickering.",
+          "Designing an aesthetically pleasing developer-centric chat interface matching high-end CLI tools."
+        ],
+        "solution": [
+          "Built a custom streaming markdown parser with syntax-highlighted code blocks and one-click copy buttons.",
+          "Implemented intelligent auto-scroll behavior that pauses when the user scrolls up to inspect previous answers.",
+          "Crafted subtle animated pulsing indicators for AI thinking states and token arrivals."
+        ],
+        "impact": [
+          "Delivered an engaging terminal-inspired conversation UI with zero visual flicker.",
+          "High developer praise for effortless code snippet inspection and inline formatting."
+        ],
+        "project_highlights": [
+          "Streaming syntax-highlighted code blocks with one-click copy",
+          "Smart auto-scroll behavior pausing when users scroll up to read history",
+          "Sleek dark theme typography optimized for long-form reading"
+        ],
+        "project_user_count": 8500,
+        "project_revenue": null,
+        "currency": "$",
+        "extra_notes": "Zero flicker during rapid token arrival."
+      },
+      "systems-architect": {
+        "mode_name": "Systems Architect",
+        "project_description": "High-throughput vector indexing and inference routing architecture with caching and cost governance.",
+        "challenge": [
+          "Balancing vector embedding quality, similarity search retrieval latency, and token expenditure at scale.",
+          "Managing API rate limits and preventing service disruption during query surges."
+        ],
+        "solution": [
+          "Implemented pgvector cosine indexing with top-K candidate scoring and minimum similarity thresholds.",
+          "Designed a semantic caching layer to instantly answer identical or near-duplicate queries without LLM roundtrips.",
+          "Constructed modular inference routing supporting OpenAI, Anthropic, and local Ollama backends."
+        ],
+        "impact": [
+          "Reduced external LLM inference API costs by 42% via semantic cache hits.",
+          "Maintained 99th percentile response retrieval times under 600ms."
+        ],
+        "project_highlights": [
+          "pgvector / Qdrant vector database similarity clustering",
+          "Embedding cache layer avoiding redundant API calls for duplicate queries",
+          "Automated knowledge ingestion pipeline parsing raw markdown directories"
+        ],
+        "project_user_count": 8500,
+        "project_revenue": null,
+        "currency": "$",
+        "extra_notes": "Architecture supports pluggable LLM backends (OpenAI, Anthropic, local Ollama)."
+      }
+    }
+  },
+  {
+    "id": "22222222-2222-2222-2222-222222222224",
+    "slug": "blankdev-portfolio",
+    "project_name": "Blankdev Portfolio",
+    "project_image": "https://pub-r2.blankdev.in/blankdev-portfolio-cover.webp",
+    "project_images": [
+      "https://pub-r2.blankdev.in/blankdev-portfolio-1.webp",
+      "https://pub-r2.blankdev.in/blankdev-portfolio-2.webp"
+    ],
+    "project_videos": [
+      "https://pub-r2.blankdev.in/blankdev-portfolio-demo.mp4"
+    ],
+    "project_url": "https://blankdev.in",
+    "project_github": "https://github.com/Abhraroy/blankdev-portfolio",
+    "project_md_url": "/content/projects/blankdev-portfolio.md",
+    "project_tags": [
+      "Creative Dev",
+      "Three.js",
+      "WebGL",
+      "Portfolio",
+      "Design Systems"
+    ],
+    "project_tech": [
+      "Next.js 16 App Router",
+      "React Three Fiber (R3F)",
+      "Three.js",
+      "GSAP ScrollTrigger",
+      "Framer Motion",
+      "Zustand",
+      "TailwindCSS"
+    ],
+    "project_status": "ACTIVE",
+    "project_type": "PERSONAL",
+    "project_visibility_status": "PUBLIC",
+    "createdAt": "2026-03-10T15:00:00.000Z",
+    "updatedAt": "2026-09-15T00:00:00.000Z",
+    "interactions": {
+      "project_viewed": 2650,
+      "project_clicked": 720
+    },
+    "views": {
+      "selected_work": {
+        "visible": true,
+        "displayOrder": 3,
+        "offset": "down",
+        "customNumber": "04",
+        "showOneLiner": true,
+        "showDescription": true,
+        "showTechnologies": true,
+        "showHighlights": true
+      },
+      "showcase": {
+        "visible": true,
+        "displayOrder": 3,
+        "showDescription": true,
+        "showTechnologies": true,
+        "showViewAction": true
+      }
+    },
+    "highlights": [
+      {
+        "id": "h-blank-1",
+        "content": "Interactive 3D Fibonacci sphere skill network rendering at steady 60fps",
+        "order": 0,
+        "visible": true
+      },
+      {
+        "id": "h-blank-2",
+        "content": "GPU-efficient WebGL render loop pausing automatically when off-screen",
+        "order": 1,
+        "visible": true
+      },
+      {
+        "id": "h-blank-3",
+        "content": "Dynamic persona visitor mode switching adapting copy and highlights in real time",
+        "order": 2,
+        "visible": true
+      },
+      {
+        "id": "h-blank-4",
+        "content": "Seamless GSAP ScrollTrigger timeline pins with buttery smooth scroll mechanics",
+        "order": 3,
+        "visible": true
+      }
+    ],
+    "mode_contents": {
+      "full-stack": {
+        "mode_name": "Full-Stack Engineer",
+        "project_description": "Interactive founder and systems portfolio built with Next.js 16, Three.js, and an administrative CMS for dynamic storytelling.",
+        "challenge": [
+          "Harmonizing heavy 3D WebGL scenes with fast initial page load times and responsive mobile viewports.",
+          "Decoupling portfolio content from layout code so content can be managed dynamically.",
+          "Managing visitor mode switching without jarring full-page refreshes."
+        ],
+        "solution": [
+          "Separated factual domain entities from CMS presentation configurations in a modular architecture.",
+          "Employed Zustand for instant client-side persona mode switching and state synchronization.",
+          "Built offline fallback storage utilizing structured JSON data files for zero-downtime reliability."
+        ],
+        "impact": [
+          "Delivered sub-1s initial page paint while hosting rich interactive 3D WebGL features.",
+          "Full capability to operate offline or independently of external database connections.",
+          "Seamless real-time adaptation across technical, creative, and systems visitor personas."
+        ],
+        "project_highlights": [
+          "Dynamic visitor mode state management with Zustand",
+          "Comprehensive PostgreSQL schema with Prisma ORM",
+          "Automated offline JSON storage fallback mechanism"
+        ],
+        "project_user_count": 15000,
+        "project_revenue": null,
+        "currency": "$",
+        "extra_notes": "Engineered as an extensible portfolio platform ready for CMS integration."
+      },
+      "frontend-creative": {
+        "mode_name": "Frontend & Creative",
+        "project_description": "Avant-garde developer experience combining WebGL spatial computing, GSAP scroll triggers, and glassmorphic micro-interactions.",
+        "challenge": [
+          "Executing complex 3D node network physics and spatial positioning without dropping frames on lower-end devices.",
+          "Designing a cohesive dark aesthetic with custom typography, glowing shaders, and fluid scroll transitions."
+        ],
+        "solution": [
+          "Constructed a 3D Fibonacci sphere node distribution using React Three Fiber and custom GLSL shaders.",
+          "Integrated GSAP ScrollTrigger for pinned timeline storytelling and progressive section reveals.",
+          "Implemented an IntersectionObserver loop to automatically freeze Three.js rendering when off-screen."
+        ],
+        "impact": [
+          "Maintained steady 60fps rendering across desktop browsers with zero background GPU drain.",
+          "Created an award-worthy visual identity combining spatial computing with typography excellence."
+        ],
+        "project_highlights": [
+          "3D Fibonacci sphere node distribution with hover physics",
+          "Bespoke dark mode aesthetic with HSL-tailored tokens",
+          "GSAP ScrollTrigger pinned timeline animations"
+        ],
+        "project_user_count": 15000,
+        "project_revenue": null,
+        "currency": "$",
+        "extra_notes": "Built-in mobile ticker fallback when WebGL is unneeded."
+      },
+      "systems-architect": {
+        "mode_name": "Systems Architect",
+        "project_description": "Modular web system engineered for maximum decoupled flexibility, privacy-first telemetry, and low-latency asset delivery.",
+        "challenge": [
+          "Designing an extensible portfolio platform supporting headless CMS capabilities and privacy-first analytics.",
+          "Avoiding third-party telemetry scripts that degrade performance or trigger ad blockers."
+        ],
+        "solution": [
+          "Devised a dual-mode data layer capable of reading from PostgreSQL/Prisma or local JSON files interchangeably.",
+          "Engineered lightweight, self-hosted telemetry endpoints recording page views and card clicks.",
+          "Leveraged Next.js App Router hybrid static generation paired with edge revalidation."
+        ],
+        "impact": [
+          "100% operational resilience offline and instant zero-latency page hydration.",
+          "Privacy-compliant conversion tracking without third-party tracking cookies or performance penalties."
+        ],
+        "project_highlights": [
+          "Normalized factual vs CMS presentation separation",
+          "Zero third-party tracking scripts with self-hosted telemetry",
+          "Static generation paired with edge revalidation"
+        ],
+        "project_user_count": 15000,
+        "project_revenue": null,
+        "currency": "$",
+        "extra_notes": "Designed to run on edge compute platforms with zero cold starts."
+      }
+    }
+  }
+]
